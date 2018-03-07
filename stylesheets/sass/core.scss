@@ -1,0 +1,226 @@
+// CORE SCSS
+
+// * VARS *
+$groundTileDim: 128px;
+
+
+body{
+  height: 100vh;
+  width: 100vh;
+  background: linear-gradient(#1c8dff, #85eaef);
+  font-family: sans-serif;
+}
+
+// * IDs *
+
+#ground{
+  height:$groundTileDim;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+
+  background: url('imgs/groundTile.jpg') repeat-x;
+  background-size: $groundTileDim;
+}
+
+//* CLASSES *
+%cloud{
+  background:url('imgs/cloudTile.png');
+  background-size: contain;
+  position: fixed;
+}
+
+%flexCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.largeCloud{
+  height: 175px;
+  width:  175px;
+
+  animation-name: movingCloud;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+
+  @extend %cloud;
+  @extend %flexCenter;
+}
+
+.mediumCloud{
+  height: 125px;
+  width: 125px;
+
+  animation-name: movingCloud;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+
+  @extend %cloud;
+  @extend %flexCenter;
+}
+
+.smallCloud{
+  height: 75px;
+  width: 75px;
+
+  animation-name: movingCloud;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+
+  @extend %cloud;
+  @extend %flexCenter;
+}
+
+.pipe{
+  background: url('imgs/pipeTile.png');
+
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+}
+
+.flower{
+  height: 190px;
+  width: 70px;
+  position: fixed;
+  bottom: 40%;
+  right: 22.7%;
+  background: url('imgs/flower_2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  animation-name: movingFlowerOpen, movingFlower;
+  animation-duration: .25s, 2s;
+  animation-iteration-count: infinite;
+}
+
+.bush1{
+  background: url('imgs/bushTile.png');
+
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+}
+
+#b1{
+  height: 100px;
+  width: 100px;
+  bottom: 13.8%;
+  left: .5%;
+}
+
+#b2{
+  height: 150px;
+  width: 150px;
+  bottom: 12%;
+  right: .5%;
+}
+
+#p1 {
+  height: 250px;
+  width:  120px;
+  bottom: 10%;
+  right:  20%;
+}
+
+#p2 {
+  height: 250px;
+  width: 120px;
+  bottom: 5%;
+  right:  45%;
+}
+
+#c1{
+  top: 25%;
+  left: 15%;
+}
+
+#c2{
+  top: 15%;
+  left: 25%;
+}
+
+#c3{
+  top: 10%;
+  left: 45%;
+}
+
+#blockSet{
+  height: 45px;
+  width: 45px*6;
+  font-size: 0;
+
+  position: fixed;
+  bottom: 41%;
+  left: 7%;
+}
+
+.block{
+  height: 45px;
+  width:  45px;
+  display: inline-block;
+}
+
+.brick{
+  background: url('imgs/brickBlockTile.png');
+  background-size: contain;
+}
+
+.gold{
+  background: url('imgs/questionBlockTile.png');
+  background-size: contain;
+}
+
+
+// *ANIMATIONS*
+
+@keyframes movingCloud {
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(50px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+@keyframes movingFlowerOpen{
+  0%{
+    background: ('imgs/flower_1.png');
+    background-size: contain;
+     }
+
+  50%{
+    background:url('imgs/flower_1.png');
+    background-size: contain;
+     }
+
+  100%{
+    background:url('imgs/flower_1.png');
+    background-size: contain;
+     }
+   }
+
+@keyframes movingFlower{
+     0%{
+       bottom: 0%;
+     }
+
+     25%{
+       bottom: 31%;
+     }
+
+     50%{
+       bottom: 31%;
+     }
+
+     100%{
+       bottom: 0%;
+     }
+}
